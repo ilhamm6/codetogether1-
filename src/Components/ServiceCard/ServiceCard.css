@@ -1,0 +1,41 @@
+.serviceCard{
+
+background:white;
+padding:30px 20px;
+border-radius:14px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+cursor:pointer;
+text-align: center;
+transition:0.3s;
+
+}
+
+.serviceCard:hover{
+
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
+}
+
+
+.iconCircle{
+
+width:60px;
+height:60px;
+
+margin:auto;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:24px;
+
+background:#eaf2ff;
+color:#3b82f6;
+
+margin-bottom:10px;
+
+}
