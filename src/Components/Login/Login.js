@@ -8,7 +8,7 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      <h1 className="logo">khdima.ma</h1>
+      <h1 className="logos">khdima.ma</h1>
       <p className="welcome">Bienvenue</p>
 
       <div className="login-card">
@@ -42,9 +42,8 @@ export default function Login() {
         <p className="signup">
           Vous n’avez pas de compte ? <a href="#">S'inscrire</a>
         </p>
-      </div>
-
-      <p className="footer">© 2026 khdima.ma - Tous droits réservés</p>
+     
+      </div>  
     </div>
   );
 }

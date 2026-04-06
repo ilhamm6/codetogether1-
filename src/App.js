@@ -6,6 +6,7 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Login from "./Components/Login/Login";
 import Register from "./Pages/Register/Register";
+import Search from "./Pages/search/search";
 function App() {
   return (
     <Router>
@@ -17,6 +18,8 @@ function App() {
     <Route path="/" element={<Home />} />
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
+    <Route path="/search" element={<Search />} />
+
 
     </Routes>
 

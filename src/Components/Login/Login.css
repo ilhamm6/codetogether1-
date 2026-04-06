@@ -11,8 +11,12 @@ body{
     justify-content: center;
 }
 .logo {
-  color: white;
+  color: #7a2cff !important;
   margin: 0;
+}
+.logos{
+  color:white !important;
+  margin:0;
 }
 .welcome {
   color: white;
@@ -20,9 +24,9 @@ body{
 }
 .login-card {
   background: #eee;
-  padding: 35px;
+  padding: 50px;
   border-radius: 15px;
-  width: 350px;
+  width: 400px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 .login-card h2 {
@@ -32,6 +36,12 @@ body{
   font-size: 14px;
   display: block;
   margin-top: 10px;
+}
+.input-group input:focus{
+  border:2px solid #7b2cff;
+  transform: scale(1.03);
+  outline: none;
+  transition: 0.2s;
 }
 .input-group {
   position: relative;
@@ -61,7 +71,7 @@ body{
 }
 
 .forgot a {
-  color: #7b2cff;
+    color:#7a2cff;
   font-size: 13px;
   text-decoration: none;
 }

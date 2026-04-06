@@ -65,11 +65,6 @@ function Register() {
         </p>
 
       </div>
-
-      <div className="footer">
-        © 2026 khdima.ma - Tous droits réservés
-      </div>
-
     </div>
   );
 }

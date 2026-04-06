@@ -18,7 +18,7 @@ khidma.ma
 <nav className={menu ? "nav active" : "nav"}>
 
 <Link to="/">Accueil</Link>
-<a href="#">Trouver un professionnel</a>
+<Link to="/search">Trouver un professionnel</Link>
 <a href="#">Catégories</a>
 <a href="#">Contact</a>
 
