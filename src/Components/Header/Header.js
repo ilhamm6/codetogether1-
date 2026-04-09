@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function Header(){
@@ -19,17 +19,15 @@ khidma.ma
 
 <Link to="/">Accueil</Link>
 <Link to="/search">Trouver un professionnel</Link>
-<a href="#">Catégories</a>
-<a href="#">Contact</a>
+<a href="#">À propos</a>
+
 
 <div className="navButtons">
-<Link to="/login" className="loginBtn">
-Se connecter
+<Link to="/login" className="connectionBtn">
+<FaUser />
+Connexion
 </Link>
-<Link to="/register "className="signupBtn">
-S'inscrire
-</Link>
-</div> 
+</div>
 
 </nav>
 

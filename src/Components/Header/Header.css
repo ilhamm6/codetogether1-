@@ -44,37 +44,30 @@ display:flex;
 gap:15px;
 
 }
-
-.loginBtn{
-pading:10px 20px;
-color:#7a2cff ;
-cursor:pointer;
-font-size: 16px;
-transaction:0.3s;
-
+.connectionBtn{
+border:2px solid #7a2cff;
+padding:10px 20px;
+border-radius:8px;
+color:#7a2cff;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+display:flex;
+align-items:center;
+gap:8px;
 }
-.loginBtn:hover{
-font-size:18px;
-color:#7a2cff !important;
+
+.connectionBtn:hover{
+background:#7a2cff;
+color:white;
 transform: scale(1.05);
 }
 
-.signupBtn{
-
+.connectionBtn:hover{
 background:#7a2cff;
-border:none;
-padding:10px 20px;
-border-radius:6px;
-cursor:pointer;
-font-size: 16px;
-transaction:0.3s;
+color:white;
+}
 
-}
-.signupBtn:hover{
-background:#5b1fd1;
-transform:scale(1.1);
-color: white;
-}
 
 /* menu icon */
 

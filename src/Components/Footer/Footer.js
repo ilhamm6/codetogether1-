@@ -1,66 +1,44 @@
 import React from "react";
 import "./Footer.css";
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
-function Footer(){
+function Footer() {
+  return (
+    <footer className="footer">
 
-return(
+      <div className="footer-container">
 
-<footer className="footer">
+        <div className="footer-col">
+          <h3>khdima.ma</h3>
+          <p>Trouvez les meilleurs professionnels au Maroc</p>
+        </div>
 
-<div className="footerContainer">
+        <div className="footer-col">
+          <h4>Liens rapides</h4>
+          <a href="#">FAQ</a>
+          <a href="#">À propos</a>
+          <a href="#">Contact</a>
+        </div>
 
-<div className="footerCol">
+        <div className="footer-col">
+          <h4>Suivez-nous</h4>
 
-<h3>khidma.ma</h3>
+          <div className="social-icons">
+            <a href="#"><FaFacebookF/></a>
+            <a href="#"><FaTwitter/></a>
+            <a href="#"><FaLinkedinIn/></a>
+          </div>
 
-<p>
-La plateforme qui connecte les clients
-avec les professionnels locaux.
-</p>
+        </div>
 
-</div>
+      </div>
 
-<div className="footerCol">
+      <div className="footer-bottom">
+        © 2026 ServicesMaroc. Tous droits réservés.
+      </div>
 
-<h4>Liens rapides</h4>
-
-<p>Accueil</p>
-<p>Catégories</p>
-<p>Devenir professionnel</p>
-
-</div>
-
-<div className="footerCol">
-
-<h4>Support</h4>
-
-<p>Centre d'aide</p>
-<p>Conditions</p>
-<p>Confidentialité</p>
-
-</div>
-
-<div className="footerCol">
-
-<h4>Contact</h4>
-
-<p>Email : contact@khidma.ma</p>
-<p>Casablanca, Maroc</p>
-
-</div>
-
-</div>
-
-<div className="copyright">
-
-© 2026 khidma.ma - Tous droits réservés
-
-</div>
-
-</footer>
-
-)
-
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

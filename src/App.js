@@ -5,8 +5,9 @@ import Home from "./Pages/Home/Home";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Login from "./Components/Login/Login";
-import Register from "./Pages/Register/Register";
 import Search from "./Pages/search/search";
+import RegisterClient from "./Components/RegisterClient/RegisterClient";
+import RegisterWorker from "./Components/RegisterWorker/RegisterWorker";
 function App() {
   return (
     <Router>
@@ -17,8 +18,9 @@ function App() {
 
     <Route path="/" element={<Home />} />
     <Route path="/login" element={<Login />} />
-    <Route path="/register" element={<Register />} />
     <Route path="/search" element={<Search />} />
+    <Route path="/register-client" element={<RegisterClient />} />
+    <Route path="/register-worker" element={<RegisterWorker />} />
 
 
     </Routes>

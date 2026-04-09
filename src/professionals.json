@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "name": "Ahmed Bennani",
+    "job": "Électricien",
+    "rating": 4.8,
+    "reviews": 120,
+    "city": "Casablanca",
+    "priceMin": 200,
+    "priceMax": 400,
+    "available": true,
+    "verified": true,
+    "image": "https://randomuser.me/api/portraits/men/32.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Fatima Alaoui",
+    "job": "Plombier",
+    "rating": 4.9,
+    "reviews": 95,
+    "city": "Rabat",
+    "priceMin": 150,
+    "priceMax": 350,
+    "available": true,
+    "verified": true,
+    "image": "https://randomuser.me/api/portraits/women/44.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Youssef Mansouri",
+    "job": "Mécanicien",
+    "rating": 4.7,
+    "reviews": 80,
+    "city": "Marrakech",
+    "priceMin": 250,
+    "priceMax": 500,
+    "available": true,
+    "verified": true,
+    "image": "https://randomuser.me/api/portraits/men/46.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Samira Idrissi",
+    "job": "Électricien",
+    "rating": 4.6,
+    "reviews": 67,
+    "city": "Fès",
+    "priceMin": 180,
+    "priceMax": 380,
+    "available": true,
+    "verified": true,
+    "image": "https://randomuser.me/api/portraits/women/68.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Karim Tahiri",
+    "job": "Plombier",
+    "rating": 4.9,
+    "reviews": 110,
+    "city": "Casablanca",
+    "priceMin": 200,
+    "priceMax": 450,
+    "available": false,
+    "verified": true,
+    "image": "https://randomuser.me/api/portraits/men/55.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Nadia Berrada",
+    "job": "Électricien",
+    "rating": 4.5,
+    "reviews": 55,
+    "city": "Rabat",
+    "priceMin": 200,
+    "priceMax": 380,
+    "available": true,
+    "verified": true,
+    "image": "https://randomuser.me/api/portraits/women/22.jpg"
+  }
+]
