@@ -44,7 +44,7 @@ export default function Login() {
       );
 
       // Redirect vers page Trouver professionnel
-      navigate("/search");
+      navigate("/auth-success?type=login");
 
     } catch (error) {
       console.log(error);

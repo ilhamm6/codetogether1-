@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./RegisterClient.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FaArrowLeft,
   FaUser,
@@ -11,6 +11,9 @@ import {
 } from "react-icons/fa";
 
 export default function RegisterClient() {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -31,7 +34,32 @@ export default function RegisterClient() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    // Validation simple
+    if (
+      !formData.fullName ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.city ||
+      !formData.password ||
+      !formData.confirmPassword
+    ) {
+      alert("Veuillez remplir tous les champs");
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      alert("Les mots de passe ne correspondent pas");
+      return;
+    }
+
+    if (!formData.acceptedTerms) {
+      alert("Veuillez accepter les conditions");
+      return;
+    }
+
+    // هنا من بعد التسجيل
+    navigate("/auth-success?type=client");
   };
 
   return (
@@ -59,6 +87,7 @@ export default function RegisterClient() {
             </span>
             Nom complet *
           </label>
+
           <input
             type="text"
             name="fullName"
@@ -73,6 +102,7 @@ export default function RegisterClient() {
             </span>
             Email *
           </label>
+
           <input
             type="email"
             name="email"
@@ -87,6 +117,7 @@ export default function RegisterClient() {
             </span>
             Téléphone *
           </label>
+
           <input
             type="text"
             name="phone"
@@ -101,10 +132,11 @@ export default function RegisterClient() {
             </span>
             Ville *
           </label>
+
           <input
             type="text"
             name="city"
-            placeholder="Sélectionnez votre ville"
+            placeholder="Entrez votre ville"
             value={formData.city}
             onChange={handleChange}
           />
@@ -115,6 +147,7 @@ export default function RegisterClient() {
             </span>
             Mot de passe *
           </label>
+
           <input
             type="password"
             name="password"
@@ -129,6 +162,7 @@ export default function RegisterClient() {
             </span>
             Confirmer le mot de passe *
           </label>
+
           <input
             type="password"
             name="confirmPassword"
@@ -154,11 +188,13 @@ export default function RegisterClient() {
           <button type="submit" className="register-btn">
             Créer mon compte
           </button>
+
         </form>
 
         <p className="bottom-text">
           Vous avez déjà un compte ? <Link to="/login">Se connecter</Link>
         </p>
+
       </div>
     </div>
   );
