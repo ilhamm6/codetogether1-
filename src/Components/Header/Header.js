@@ -12,7 +12,7 @@ return(
 <header className="header">
 
 <div className="logo">
-khidma.ma
+khdima.ma
 </div>
 
 <nav className={menu ? "nav active" : "nav"}>

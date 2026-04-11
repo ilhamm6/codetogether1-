@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./search.css";
 import professionalsData from "../../professionals.json";
+import { Link } from "react-router-dom";
 
 export default function Search() {
   const [query, setQuery] = useState("");
@@ -163,10 +164,10 @@ export default function Search() {
                   </div>
                 </div>
 
-                <div className="pro-actions">
-                  <button className="reserve-btn">Réserver</button>
-                  <button className="contact-btn">💬</button>
-                </div>
+               <div className="pro-actions">
+               <Link to="/booking" className="pro-reserve-btn link-btn">Réserver</Link>
+               <Link to="/contact" className="pro-contact-btn">💬</Link>
+               </div>
               </div>
             ))}
           </div>

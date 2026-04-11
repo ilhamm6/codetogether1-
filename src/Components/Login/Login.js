@@ -1,11 +1,67 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaSignInAlt, FaEnvelope, FaLock } from "react-icons/fa";
+import api from "../../services/api"; // change path if needed
 
 export default function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [messageErreur, setMessageErreur] = useState("");
+  const [messageSucces, setMessageSucces] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    setMessageErreur("");
+    setMessageSucces("");
+
+    if (!email || !password) {
+      setMessageErreur("Veuillez remplir tous les champs.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await api.post("/connexion", {
+        email: email,
+        mot_de_passe: password,
+      });
+
+      const utilisateur = response.data.utilisateur;
+      const token = response.data.token;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("utilisateur", JSON.stringify(utilisateur));
+
+      setMessageSucces(
+        `Connexion réussie. Vous êtes connecté en tant que ${utilisateur.role}.`
+      );
+
+      // Redirection selon le rôle
+      if (utilisateur.role === "travailleur") {
+        navigate("/workers");
+      } else if (utilisateur.role === "client") {
+        navigate("/");
+      } else {
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+
+      if (error.response && error.response.data && error.response.data.message) {
+        setMessageErreur(error.response.data.message);
+      } else {
+        setMessageErreur("Une erreur est survenue lors de la connexion.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="login-page">
@@ -23,7 +79,17 @@ export default function Login() {
         <h2>Connexion</h2>
         <p className="subtitle">Connectez-vous à votre compte</p>
 
-        <form className="login-form">
+        {messageErreur && (
+          <p style={{ color: "red", marginBottom: "10px" }}>{messageErreur}</p>
+        )}
+
+        {messageSucces && (
+          <p style={{ color: "green", marginBottom: "10px" }}>
+            {messageSucces}
+          </p>
+        )}
+
+        <form className="login-form" onSubmit={handleLogin}>
           <label>
             <span className="label-icon">
               <FaEnvelope />
@@ -61,8 +127,8 @@ export default function Login() {
             </Link>
           </div>
 
-          <button type="submit" className="login-btn">
-            Se connecter
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? "Connexion..." : "Se connecter"}
           </button>
         </form>
 
