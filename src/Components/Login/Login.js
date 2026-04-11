@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaSignInAlt, FaEnvelope, FaLock } from "react-icons/fa";
-import api from "../../services/api"; // change path if needed
+import api from "../../services/api";
 
 export default function Login() {
+
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -42,14 +43,9 @@ export default function Login() {
         `Connexion réussie. Vous êtes connecté en tant que ${utilisateur.role}.`
       );
 
-      // Redirection selon le rôle
-      if (utilisateur.role === "travailleur") {
-        navigate("/workers");
-      } else if (utilisateur.role === "client") {
-        navigate("/");
-      } else {
-        navigate("/");
-      }
+      // Redirect vers page Trouver professionnel
+      navigate("/search");
+
     } catch (error) {
       console.log(error);
 
@@ -58,6 +54,7 @@ export default function Login() {
       } else {
         setMessageErreur("Une erreur est survenue lors de la connexion.");
       }
+
     } finally {
       setLoading(false);
     }
@@ -80,7 +77,9 @@ export default function Login() {
         <p className="subtitle">Connectez-vous à votre compte</p>
 
         {messageErreur && (
-          <p style={{ color: "red", marginBottom: "10px" }}>{messageErreur}</p>
+          <p style={{ color: "red", marginBottom: "10px" }}>
+            {messageErreur}
+          </p>
         )}
 
         {messageSucces && (
@@ -96,6 +95,7 @@ export default function Login() {
             </span>
             Email
           </label>
+
           <input
             type="email"
             placeholder="example@email.com"
@@ -109,6 +109,7 @@ export default function Login() {
             </span>
             Mot de passe
           </label>
+
           <input
             type="password"
             placeholder="Votre mot de passe"
@@ -130,6 +131,7 @@ export default function Login() {
           <button type="submit" className="login-btn" disabled={loading}>
             {loading ? "Connexion..." : "Se connecter"}
           </button>
+
         </form>
 
         <div className="divider">
@@ -137,6 +139,7 @@ export default function Login() {
         </div>
 
         <div className="register-buttons">
+
           <Link to="/register-client" className="outline-btn">
             Créer <br /> compte client
           </Link>
@@ -144,7 +147,9 @@ export default function Login() {
           <Link to="/register-worker" className="outline-btn">
             Créer <br /> compte pro
           </Link>
+
         </div>
+
       </div>
 
       <div className="login-footer-box">
@@ -153,6 +158,7 @@ export default function Login() {
           type de compte (client ou professionnel) après connexion.
         </p>
       </div>
+
     </div>
   );
 }
