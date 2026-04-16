@@ -18,7 +18,7 @@ khdima.ma
 <nav className={menu ? "nav active" : "nav"}>
 
 <Link to="/">Accueil</Link>
-<a href="#">À propos</a>
+<Link to="/About">À propos</Link>
 
 
 <div className="navButtons">

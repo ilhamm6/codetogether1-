@@ -10,6 +10,8 @@ import RegisterClient from "./Components/RegisterClient/RegisterClient";
 import RegisterWorker from "./Components/RegisterWorker/RegisterWorker";
 import Booking from "./Pages/Booking/Booking";
 import contact from "./Pages/contact/contact";
+import AuthSuccess from "./Pages/AuthSuccess/AuthSuccess";
+import About from "./Pages/About/About";
 function App() {
   return (
     <Router>
@@ -25,6 +27,8 @@ function App() {
     <Route path="/register-worker" element={<RegisterWorker />} />
     <Route path="/booking" element={<Booking />} />
     <Route path="/contact" element={<contact />} />
+    <Route path="/auth-success" element={<AuthSuccess />} />
+    <Route path="/about" element={<About />} />
 
 
     </Routes>

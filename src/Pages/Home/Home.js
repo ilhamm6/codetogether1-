@@ -122,7 +122,7 @@ export default function Home() {
             Devenir un professionnel
           </Link>
 
-          <Link to="/search" className="cta-secondary">
+          <Link to="/Login" className="cta-secondary">
             Trouver un service
           </Link>
         </div>
