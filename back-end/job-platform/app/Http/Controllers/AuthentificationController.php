@@ -85,7 +85,7 @@ class AuthentificationController extends Controller
             'note' => 0
         ]);
         
-       // Mail::to($utilisateur->email)->send(new BienvenueUtilisateurMail($utilisateur));
+       Mail::to($utilisateur->email)->send(new BienvenueUtilisateurMail($utilisateur));
         $travailleur->photo_url = $travailleur->photo
             ? asset('storage/' . $travailleur->photo)
             : null;
