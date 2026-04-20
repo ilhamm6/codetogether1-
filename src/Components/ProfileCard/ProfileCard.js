@@ -1,51 +1,54 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ProfileCard.css";
 import { FaStar, FaMapMarkerAlt, FaComment } from "react-icons/fa";
 
 function ProfileCard({ name, job, rating, image, status, distance }) {
+  const worker = {
+    name,
+    job,
+    rating,
+    image,
+    status,
+    distance,
+  };
 
-return (
+  return (
+    <div className="profileCard">
+      {/* IMAGE */}
+      <div className="cardImage">
+        <img src={image} alt={name} />
 
-<div className="profileCard">
+        <span className={`status ${status === "Disponible" ? "green" : "gray"}`}>
+          {status}
+        </span>
+      </div>
 
-{/* IMAGE */}
-<div className="cardImage">
+      {/* INFO */}
+      <div className="cardBody">
+        <h3>{name}</h3>
+        <p className="job">{job}</p>
 
-<img src={image} alt={name} />
+        <div className="rating">
+          <FaStar className="star" />
+          <span>{rating}</span>
+        </div>
 
-<span className={`status ${status === "Disponible" ? "green" : "gray"}`}>
-{status}
-</span>
+        <div className="location">
+          <FaMapMarkerAlt />
+          <span>{distance}</span>
+        </div>
 
-</div>
-
-{/* INFO */}
-
-<div className="cardBody">
-
-<h3>{name}</h3>
-<p className="job">{job}</p>
-
-<div className="rating">
-<FaStar className="star"/>
-<span>{rating}</span>
-</div>
-
-<div className="location">
-<FaMapMarkerAlt/>
-<span>{distance}</span>
-</div>
-
-<button className="contactBtn">
-<FaComment/> Contacter
-</button>
-
-</div>
-
-</div>
-
-)
-
+        <Link
+          className="contactBtn"
+          to="/contact"
+          state={{ worker }}
+        >
+          <FaComment /> Contacter
+        </Link>
+      </div>
+    </div>
+  );
 }
 
 export default ProfileCard;

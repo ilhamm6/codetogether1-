@@ -1,3 +1,4 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -10,9 +11,139 @@
   color: #222;
 }
 
-/* HERO */
+/* ================= HERO ================= */
+
+.about-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #a855f7, #6a00ff 60%, #3b0764);
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.35;
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.badge-top {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.95);
+  color: #6a00ff;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 22px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.badge-sub {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 22px;
+  margin-bottom: 40px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hero-title {
+  font-size: 110px;
+  font-weight: 900;
+  line-height: 1;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+.hero-highlight {
+  display: inline-block;
+  background: white;
+  color: #6a00ff;
+  font-size: 92px;
+  font-weight: 900;
+  line-height: 1.1;
+  padding: 18px 34px;
+  border-radius: 26px;
+  margin-bottom: 30px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.hero-text {
+  font-size: 22px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ================= MISSION ================= */
+
+.mission-section {
+  padding: 90px 20px;
+  display: flex;
+  justify-content: center;
+  background: #f8f8f8;
+}
+
+.mission-card {
+  background: white;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 22px;
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+.mission-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #6a00ff, #9c27ff);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.mission-card h2 {
+  color: #6a00ff;
+  font-size: 34px;
+  margin-bottom: 16px;
+}
+
+.mission-card p {
+  color: #666;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ================= HOW ================= */
+
 .how-section {
-  padding: 70px 20px 90px;
+  padding: 80px 20px 90px;
   text-align: center;
   background: #fafafa;
 }
@@ -29,40 +160,37 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-  align-items: stretch;
 }
 
 .how-step-card {
   position: relative;
   background: white;
   border-radius: 22px;
-  padding: 40px 28px 30px;
+  padding: 42px 28px 32px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   text-align: left;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  overflow: visible;
 }
 
 .how-step-card:hover {
-  transform: scale(1.04);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
 }
 
 .step-number {
   position: absolute;
-  top: -18px;
+  top: -16px;
   right: 18px;
-  min-width: 62px;
-  height: 62px;
+  min-width: 58px;
+  height: 58px;
   padding: 0 14px;
-  border-radius: 18px;
+  border-radius: 16px;
   color: white;
   font-weight: 800;
-  font-size: 22px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
 }
 
 .step1 {
@@ -78,13 +206,13 @@
 }
 
 .how-icon {
-  font-size: 58px;
-  margin-bottom: 20px;
+  font-size: 52px;
+  margin-bottom: 18px;
 }
 
 .how-step-card h3 {
   font-size: 28px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   color: #111;
 }
 
@@ -92,15 +220,14 @@
   font-size: 16px;
   color: #666;
   line-height: 1.8;
-  max-width: 250px;
 }
 
 .step-arrow {
   position: absolute;
-  right: -22px;
+  right: -18px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 34px;
+  font-size: 32px;
   color: #d6a8ff;
   font-weight: bold;
 }
@@ -109,201 +236,17 @@
   display: none;
 }
 
-@media (max-width: 992px) {
-  .how-cards {
-    grid-template-columns: 1fr;
-  }
+/* ================= ADVANTAGES ================= */
 
-  .step-arrow {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .how-section h2 {
-    font-size: 30px;
-  }
-
-  .how-step-card {
-    padding: 34px 22px 24px;
-  }
-
-  .how-step-card h3 {
-    font-size: 24px;
-  }
-
-  .how-icon {
-    font-size: 48px;
-  }
-
-  .step-number {
-    min-width: 54px;
-    height: 54px;
-    font-size: 18px;
-  }
-}
-/* badges */
-
-.badge-top{
-  display:inline-block;
-  background:white;
-  color:#6a00ff;
-  padding:8px 18px;
-  border-radius:999px;
-  font-weight:600;
-  margin-bottom:15px;
-}
-
-.badge-sub{
-  display:inline-block;
-  background:rgba(255,255,255,0.15);
-  padding:10px 20px;
-  border-radius:999px;
-  margin-bottom:30px;
-}
-
-/* title */
-
-.hero-title{
-  font-size:80px;
-  font-weight:800;
-  margin-bottom:10px;
-}
-
-.hero-highlight{
-  display:inline-block;
-  background:white;
-  color:#6a00ff;
-  font-size:70px;
-  font-weight:800;
-  padding:10px 25px;
-  border-radius:20px;
-  margin-bottom:20px;
-}
-
-.hero-text{
-  font-size:18px;
-  opacity:0.9;
-  max-width:600px;
-  margin:0 auto;
-}
-
-/* responsive */
-
-@media(max-width:768px){
-
-.hero-title{
-font-size:40px;
-}
-
-.hero-highlight{
-font-size:32px;
-}
-
-.hero-text{
-font-size:16px;
-}
-
-}
-/* MISSION */
-.mission-section {
-  padding: 80px 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.mission-card {
-  background: white;
-  width: 100%;
-  max-width: 650px;
-  border-radius: 18px;
-  padding: 35px 30px;
-  text-align: center;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-}
-
-.mission-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 18px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #6a00ff, #9c27ff);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-}
-
-.mission-card h2 {
-  color: #7b2cff;
-  font-size: 34px;
-  margin-bottom: 16px;
-}
-
-.mission-card p {
-  color: #666;
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-/* HOW */
-.how-section {
-  padding: 60px 20px 80px;
-  text-align: center;
-}
-
-.how-section h2 {
-  font-size: 42px;
-  margin-bottom: 35px;
-}
-
-.how-cards {
-  max-width: 1050px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.how-card {
-  background: white;
-  border-radius: 16px;
-  padding: 28px 22px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  transition: 0.25s;
-}
-
-.how-card:hover {
-  transform: translateY(-5px);
-}
-
-.how-icon {
-  font-size: 28px;
-  margin-bottom: 14px;
-}
-
-.how-card h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.how-card p {
-  color: #666;
-  line-height: 1.7;
-  font-size: 15px;
-}
-
-/* ADVANTAGES */
 .advantages-section {
-  padding: 70px 20px 90px;
+  padding: 80px 20px 90px;
   text-align: center;
-  border-top: 1px solid #eee;
+  background: #fff;
 }
 
 .advantages-section h2 {
   font-size: 42px;
-  margin-bottom: 35px;
+  margin-bottom: 36px;
 }
 
 .advantages-grid {
@@ -311,14 +254,14 @@ font-size:16px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 20px;
 }
 
 .advantage-card {
   background: white;
-  border-radius: 16px;
-  padding: 26px 18px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  padding: 28px 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .advantage-card h3 {
@@ -327,15 +270,15 @@ font-size:16px;
 }
 
 .advantage-icon {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   margin: 0 auto;
-  border-radius: 12px;
+  border-radius: 14px;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .green {
@@ -354,10 +297,11 @@ font-size:16px;
   background: #ff7a00;
 }
 
-/* STATS */
+/* ================= STATS ================= */
+
 .stats-section {
   background: linear-gradient(135deg, #6a00ff, #9c27ff);
-  padding: 60px 20px;
+  padding: 70px 20px;
   color: white;
 }
 
@@ -371,7 +315,7 @@ font-size:16px;
 }
 
 .stat-box h3 {
-  font-size: 52px;
+  font-size: 50px;
   margin-bottom: 10px;
 }
 
@@ -379,18 +323,19 @@ font-size:16px;
   font-size: 18px;
 }
 
-/* CTA */
+/* ================= CTA ================= */
+
 .about-cta {
   background: linear-gradient(135deg, #6a00ff, #a020f0);
   text-align: center;
-  padding: 80px 20px;
+  padding: 85px 20px;
   color: white;
 }
 
 .about-cta h2 {
-  font-size: 48px;
+  font-size: 44px;
   margin-bottom: 28px;
-  max-width: 700px;
+  max-width: 760px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -405,11 +350,11 @@ font-size:16px;
 .cta-primary,
 .cta-secondary {
   text-decoration: none;
-  padding: 14px 24px;
+  padding: 14px 26px;
   border-radius: 999px;
   font-weight: 700;
   font-size: 16px;
-  transition: 0.2s;
+  transition: 0.25s;
 }
 
 .cta-primary {
@@ -428,92 +373,84 @@ font-size:16px;
   transform: translateY(-2px);
 }
 
-/* RESPONSIVE */
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 992px) {
-  .about-hero h1 {
-    font-size: 44px;
+  .about-hero {
+    min-height: auto;
+    padding: 100px 20px 80px;
+  }
+
+  .hero-title {
+    font-size: 72px;
+  }
+
+  .hero-highlight {
+    font-size: 60px;
+  }
+
+  .hero-text {
+    font-size: 18px;
   }
 
   .how-cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .advantages-grid {
     grid-template-columns: 1fr 1fr;
   }
 
-  .about-cta h2 {
-    font-size: 38px;
-  }
-
-  .stat-box h3 {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-hero {
-    min-height: auto;
-    padding: 70px 20px;
-  }
-
-  .about-hero h1 {
-    font-size: 34px;
-  }
-
-  .about-hero p {
-    font-size: 16px;
-  }
-
-  .hero-feature {
-    min-width: 120px;
-    padding: 14px 16px;
-  }
-
-  .mission-card h2,
-  .how-section h2,
-  .advantages-section h2 {
-    font-size: 30px;
-  }
-
-  .how-cards,
-  .advantages-grid,
   .stats-container {
     grid-template-columns: 1fr;
   }
 
+  .step-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero-content {
+    text-align: center;
+  }
+
+  .badge-top,
+  .badge-sub {
+    font-size: 16px;
+  }
+
+  .hero-title {
+    font-size: 46px;
+  }
+
+  .hero-highlight {
+    font-size: 38px;
+    padding: 12px 18px;
+    border-radius: 18px;
+  }
+
+  .hero-text {
+    font-size: 16px;
+    max-width: 95%;
+  }
+
+  .mission-card h2,
+  .how-section h2,
+  .advantages-section h2,
   .about-cta h2 {
     font-size: 30px;
   }
 
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+
   .stat-box h3 {
-    font-size: 34px;
+    font-size: 36px;
   }
 
   .stat-box p {
     font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-hero h1 {
-    font-size: 28px;
-  }
-
-  .about-badge {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-
-  .mission-card,
-  .how-card,
-  .advantage-card {
-    padding: 22px 16px;
-  }
-
-  .cta-primary,
-  .cta-secondary {
-    width: 100%;
-    max-width: 280px;
   }
 }

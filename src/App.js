@@ -12,6 +12,7 @@ import Booking from "./Pages/Booking/Booking";
 import contact from "./Pages/contact/contact";
 import AuthSuccess from "./Pages/AuthSuccess/AuthSuccess";
 import About from "./Pages/About/About";
+import Contact from "./Pages/contact/contact";
 function App() {
   return (
     <Router>
@@ -26,9 +27,9 @@ function App() {
     <Route path="/register-client" element={<RegisterClient />} />
     <Route path="/register-worker" element={<RegisterWorker />} />
     <Route path="/booking" element={<Booking />} />
-    <Route path="/contact" element={<contact />} />
     <Route path="/auth-success" element={<AuthSuccess />} />
     <Route path="/about" element={<About />} />
+    <Route path="/contact" element={<Contact />} />
 
 
     </Routes>

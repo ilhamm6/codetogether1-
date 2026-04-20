@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import "./Booking.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {
   FaArrowLeft,
   FaMapMarkerAlt,
@@ -12,6 +12,9 @@ import {
 } from "react-icons/fa";
 
 export default function Booking() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [selectedDate, setSelectedDate] = useState(10);
   const [selectedHour, setSelectedHour] = useState("09:00");
   const [serviceType, setServiceType] = useState("");
@@ -19,24 +22,42 @@ export default function Booking() {
   const [duration, setDuration] = useState(1);
   const [notes, setNotes] = useState("");
 
-  const worker = {
-    name: "Ahmed Bennani",
-    job: "Électricien",
-    city: "Casablanca",
-    rating: 4.8,
-    reviews: 120,
-    priceMin: 200,
-    priceMax: 400,
-    priceHourly: 300,
-    verified: true,
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-  };
+  const worker = location.state?.worker;
 
   const days = Array.from({ length: 30 }, (_, i) => i + 1);
 
   const total = useMemo(() => {
-    return worker.priceHourly * Number(duration);
-  }, [duration, worker.priceHourly]);
+    if (!worker) return 0;
+    return ((worker.priceMin + worker.priceMax) / 2) * Number(duration);
+  }, [duration, worker]);
+
+  const handleCancel = () => {
+    navigate(-1);
+  };
+
+  const handleConfirmBooking = () => {
+    console.log("Booking confirmed:", {
+      worker,
+      selectedDate,
+      selectedHour,
+      serviceType,
+      address,
+      duration,
+      notes,
+      total,
+    });
+  };
+
+  if (!worker) {
+    return (
+      <div className="booking-page">
+        <div className="booking-container">
+          <h2>Professionnel non trouvé</h2>
+          <p>Veuillez choisir un professionnel depuis la page de recherche.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="booking-page">
@@ -50,9 +71,8 @@ export default function Booking() {
       </div>
 
       <div className="booking-container">
-        {/* LEFT CARD */}
         <div className="worker-card">
-          <img src={worker.image} alt="" className="worker-image" />
+          <img src={worker.image} alt={worker.name} className="worker-image" />
 
           <h3 className="worker-name">
             {worker.name} {worker.verified && <span className="verified-dot">✓</span>}
@@ -79,12 +99,11 @@ export default function Booking() {
             </span>
           </div>
 
-          <button className="contact-btn">
+          <Link className="contact-btn" to="/contact" state={{ worker }}>
             <FaCommentDots /> Contacter
-          </button>
+          </Link>
         </div>
 
-        {/* RIGHT FORM */}
         <div className="booking-form-card">
           <h2>Détails de la réservation</h2>
 
@@ -134,12 +153,12 @@ export default function Booking() {
               <FaClock /> Heure de rendez-vous *
             </label>
             <select value={selectedHour} onChange={(e) => setSelectedHour(e.target.value)}>
-              <option>09:00</option>
-              <option>10:00</option>
-              <option>11:00</option>
-              <option>14:00</option>
-              <option>15:00</option>
-              <option>16:00</option>
+              <option value="09:00">09:00</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
             </select>
           </div>
 
@@ -183,21 +202,18 @@ export default function Booking() {
           <div className="form-group">
             <label>Description / Notes</label>
             <textarea
-              placeholder="Décrivez en détail votre besoin, le problème rencontré, ou toute information utile pour le professionnel."
+              placeholder="Décrivez en détail votre besoin..."
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
             ></textarea>
-            <p className="helper-text">
-              Plus vous donnez de détails, mieux le professionnel pourra préparer son intervention.
-            </p>
           </div>
 
           <div className="price-summary">
             <h3>Récapitulatif du prix</h3>
 
             <div className="summary-row">
-              <span>Tarif horaire moyen</span>
-              <span>{worker.priceHourly} DH/h</span>
+              <span>Tarif moyen</span>
+              <span>{Math.round((worker.priceMin + worker.priceMax) / 2)} DH/h</span>
             </div>
 
             <div className="summary-row">
@@ -208,15 +224,16 @@ export default function Booking() {
             <div className="summary-total">
               <div>
                 <strong>Total estimé</strong>
-                <p>* Prix indicatif basé sur la durée estimée. Le prix final sera confirmé par le professionnel.</p>
               </div>
-              <span>{total} DH</span>
+              <span>{Math.round(total)} DH</span>
             </div>
           </div>
 
           <div className="booking-actions">
-            <button className="cancel-btn">✕ Annuler</button>
-            <button className="confirm-btn">
+            <button className="cancel-btn" type="button" onClick={handleCancel}>
+              ✕ Annuler
+            </button>
+            <button className="confirm-btn" type="button" onClick={handleConfirmBooking}>
               <FaCheck /> Confirmer la réservation
             </button>
           </div>

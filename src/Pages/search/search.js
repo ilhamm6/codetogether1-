@@ -143,11 +143,7 @@ export default function Search() {
             {filtered.map((p) => (
               <div className="pro-card" key={p.id}>
                 <div className="pro-top">
-                  <img
-                    src={p.image}
-                    alt=""
-                    className="profile"
-                  />
+                  <img src={p.image} alt={p.name} className="profile" />
 
                   <div className="pro-info">
                     <div className="name-row">
@@ -164,10 +160,23 @@ export default function Search() {
                   </div>
                 </div>
 
-               <div className="pro-actions">
-               <Link to="/booking" className="pro-reserve-btn link-btn">Réserver</Link>
-               <Link to="/contact" className="pro-contact-btn">💬</Link>
-               </div>
+                <div className="pro-actions">
+                  <Link
+                    to="/booking"
+                    state={{ worker: p }}
+                    className="pro-reserve-btn link-btn"
+                  >
+                    Réserver
+                  </Link>
+
+                  <Link
+                    to="/contact"
+                    state={{ worker: p }}
+                    className="pro-contact-btn"
+                  >
+                    💬
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
